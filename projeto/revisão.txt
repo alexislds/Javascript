@@ -1,0 +1,13 @@
+"var".textContent = string ou number; Coloca um texto no id html
+.textContent = retira o texto do ID html.
+
+&& = E
+!= = Diferente
+== = igual
+< = menor
+> = maior
+
+console.log = escreve no console
+prompt = caixa de escrita no site
+alert = alerta
+document.write = escreve na tela
