@@ -1,4 +1,4 @@
-//Cria um objeto "alfabeto"
+//Cria um array "alfabeto"
 var alfabeto = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","w","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z"]
 //Pega a palavra a ser codificada
 var $conteudoTexto = document.querySelector("#areaTexto");
@@ -42,7 +42,9 @@ function clickBtnCodigo (botao, conteudo) {
   botao.addEventListener ("click", function(){
     event.preventDefault();
     var codigo = conteudo.value;
-    var codigoSeparado = codigo.split("");
+    var codigoSeparado = codigo.split(" ");
+    
+    console.log(codigoSeparado);
   });
 }
 
