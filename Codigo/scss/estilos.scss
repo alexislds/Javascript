@@ -1,0 +1,18 @@
+.container-geral {align-content:center; display:flex; justify-content:space-around; margin-top:100px;}
+
+.frm-texto {background:red; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;}
+.resultado {
+  background:blue; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;
+
+  &-tt{color:white;}
+  &-tt:not(:first-of-type){margin-top:20px;}
+}
+.frm-codigo{background:yellow; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;}
+
+.areaTexto{padding:5px;}
+.btnTexto{margin-top:20px; padding:5px;}
+
+.areaCodigo{padding:5px;}
+.btnCodigo{margin-top:20px; padding:5px;}
+
+p {color:white; margin-top:15px;}
