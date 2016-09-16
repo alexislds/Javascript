@@ -1,4 +1,12 @@
-var alfabeto = [" ",".",",",":",";","!","?","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","w","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z"];
+// Tarefa: deixar o numero 58 dentro do for dinamico, utilizando uma variavel baseada no tamanho do array alfabeto, e testar é claro
+
+
+var alfabeto = [" ", ".", ",", ":", ";", "!", "?", "a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","w","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","W","Y","Z"];
+
+
+var numeroMinimo = alfabeto.indexOf('a') - 1;
+
+
 var $conteudoTexto = document.querySelector("#areaTexto");
 var $conteudoCodigo = document.querySelector("#areaCodigo");
 var $btnTexto = document.querySelector("#btnTexto");
@@ -17,8 +25,8 @@ function clickBtnTexto (botao, conteudo) {
 
     for (i = 0; i < textoSeparado.length; i++){
       var numeroMagico = Math.floor((Math.random() * 58) + 1);
-
-      if (numeroMagico > 6) {
+      
+      if (numeroMagico > numeroMinimo) {
         var letraTexto = textoSeparado[i];
         var letraCodificada = alfabeto[numeroMagico];
         var chaveLetra = alfabeto.indexOf(letraTexto);
@@ -27,7 +35,7 @@ function clickBtnTexto (botao, conteudo) {
         chaveArray.push(chaveLetra);
       }
       else {
-        i = i - 1;
+        i--;
       }
     }
 
