@@ -76,8 +76,8 @@ table {
 .resultado {
   background: blue;
   border-radius: 5px;
-  height: 300px;
-  width: 300px;
+  height: 600px;
+  width: 600px;
   padding: 40px 10px;
   text-align: center;
 }
@@ -87,7 +87,7 @@ table {
 }
 
 .resultado-tt:not(:first-of-type) {
-  margin-top: 20px;
+  margin-top: 80px;
 }
 
 .frm-codigo {

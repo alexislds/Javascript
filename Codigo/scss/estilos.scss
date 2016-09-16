@@ -2,10 +2,10 @@
 
 .frm-texto {background:red; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;}
 .resultado {
-  background:blue; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;
+  background:blue; border-radius:5px; height:600px; width:600px; padding:40px 10px; text-align:center;
 
   &-tt{color:white;}
-  &-tt:not(:first-of-type){margin-top:20px;}
+  &-tt:not(:first-of-type){margin-top:80px;}
 }
 .frm-codigo{background:yellow; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;}
 
