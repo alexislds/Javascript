@@ -1,0 +1,14 @@
+@import 'reset';
+
+.container{background-color:#333; height:150px; margin:auto; overflow:hidden; width:700px;}
+.carrosel{
+  width:2000px;
+
+  &-item{background-color:blue; display:inline-block; height:100px; list-style:none; margin:20px 18px; width:100px;}
+}
+.btn{background:blue; border:1px solid blue; border-radius:5px; color:white; padding:10px 30px;}
+
+
+/* JS */
+
+.mover{margin-left:-118px; transition:all 500ms;}

@@ -1,3 +1,57 @@
+/*--- gerais ---*/
+p {
+  color: white;
+  margin-top: 15px;
+}
+
+body {
+  background: grey;
+}
+
+.hide {
+  opacity: 0;
+  -webkit-transition: all 5000ms;
+  transition: all 5000ms;
+  visibility: hidden;
+}
+
+.primeira-transicao {
+  -webkit-transform: translate(-9999px, 0px) rotate(999deg);
+          transform: translate(-9999px, 0px) rotate(999deg);
+  -webkit-transition: all 3000ms;
+  transition: all 3000ms;
+}
+
+/*--- 1 etapa ---*/
+.btns-entrada {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background: blue;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 500px;
+  opacity: 1;
+  width: 600px;
+}
+
+.btn-escolha-codificar,
+.btn-escolha-descodificar {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 80px;
+  padding: 5px;
+  width: 200px;
+}
+
+/*--- 2 etapa ---*/
 .container-geral {
   -ms-flex-line-pack: center;
       align-content: center;
@@ -16,6 +70,10 @@
   width: 300px;
   padding: 40px 10px;
   text-align: center;
+  -webkit-transition: all 5000ms;
+  transition: all 5000ms;
+  opacity: 1;
+  visibility: visible;
 }
 
 .resultado {
@@ -44,25 +102,22 @@
   text-align: center;
 }
 
-.areaTexto {
+.area-texto {
   padding: 5px;
 }
 
-.btnTexto {
+.btn-texto {
   margin-top: 20px;
   padding: 5px;
 }
 
-.areaCodigo {
+.area-codigo {
   padding: 5px;
 }
 
-.btnCodigo {
+.btn-codigo {
   margin-top: 20px;
   padding: 5px;
 }
 
-p {
-  color: white;
-  margin-top: 15px;
-}
+/*--- 3 etapa ---*/

@@ -10,13 +10,17 @@
 </head>
 <body>
     <main class="container-geral">
-      <section class="frm-texto">
+      <section id="btns-entrada" class="btns-entrada">
+        <button id="btn-escolha-codificar" class="btn-escolha-codificar">Eu quero codificar!</button>
+        <button id="btn-escolha-descodificar" class="btn-escolha-descodificar">Eu quero descodificar!</button>
+      </section>
+      <section id="frm-texto" class="frm-texto hide">
         <form>
-          <input type="text" placeholder="Digite a palavra" id="areaTexto" class="areaTexto">
-          <button id="btnTexto" class="btnTexto">Codificar</button>
+          <input type="text" placeholder="Digite a palavra" id="area-texto" class="area-texto">
+          <button id="btn-texto" class="btn-texto">Codificar</button>
         </form>
       </section>
-      <section class="resultado">
+      <section id="resultado" class="resultado hide">
         <h2 class="resultado-tt">Sua palavra:</h2>
         <p id="palavra-texto"></p>
         <h2 class="resultado-tt">Sua palavra codificada é:</h2>
@@ -24,10 +28,10 @@
         <h2 class="resultado-tt">Sua chave é:</h2>
         <p id="chave-texto"></p>
       </section>
-      <section class="frm-codigo">
+      <section class="frm-codigo hide">
         <form>
-          <input type="text" placeholder="Digite o codigo" id="areaCodigo" class="areaCodigo">
-          <button id="btnCodigo" class="btnCodigo">Descodificar</button>
+          <input type="text" placeholder="Digite o codigo" id="area-codigo" class="area-codigo">
+          <button id="btn-codigo" class="btn-codigo">Descodificar</button>
         </form>
       </section>
         <script src="codigo.js"></script>

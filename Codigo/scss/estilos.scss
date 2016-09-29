@@ -1,6 +1,27 @@
+/*--- gerais ---*/
+
+@mixin flexbox() {
+  display:flex; justify-content:space-around; align-items:center; align-content:center;
+}
+
+p {color:white; margin-top:15px;}
+body {background:grey;}
+
+.hide {opacity:0; transition:all 5000ms; visibility:hidden;}
+.primeira-transicao {transform:translate(-9999px , 0px) rotate(999deg); transition:all 3000ms;}
+
+/*--- 1 etapa ---*/
+
+.btns-entrada{@include flexbox; background:blue; border:1px solid black; border-radius:5px; height:500px; opacity:1; width:600px;}
+.btn-escolha-codificar,
+.btn-escolha-descodificar{border:1px solid black; border-radius:5px; height:80px; padding:5px; width:200px;}
+
+
+
+/*--- 2 etapa ---*/
 .container-geral {align-content:center; display:flex; justify-content:space-around; margin-top:100px;}
 
-.frm-texto {background:red; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;}
+.frm-texto {background:red; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center; transition:all 5000ms; opacity:1; visibility:visible;}
 .resultado {
   background:blue; border-radius:5px; height:600px; width:600px; padding:40px 10px; text-align:center;
 
@@ -9,10 +30,10 @@
 }
 .frm-codigo{background:yellow; border-radius:5px; height:300px; width:300px; padding:40px 10px; text-align:center;}
 
-.areaTexto{padding:5px;}
-.btnTexto{margin-top:20px; padding:5px;}
+.area-texto{padding:5px;}
+.btn-texto{margin-top:20px; padding:5px;}
 
-.areaCodigo{padding:5px;}
-.btnCodigo{margin-top:20px; padding:5px;}
+.area-codigo{padding:5px;}
+.btn-codigo{margin-top:20px; padding:5px;}
 
-p {color:white; margin-top:15px;}
+/*--- 3 etapa ---*/
