@@ -1,37 +1,48 @@
-var pattern = {
+var regra = {
   telefone : '(##)#####-####',
   cpf : '###.###.###-##',
   data : '##/##/####',
   cnpj : '##.###.###/####-##',
 };
 
-var $input = document.querySelector('#input');
 
-$input.addEventListener('keyup', function(event){
-  if(event.keyCode != 8){
-    mascara(pattern.data, 'texto');
+window.addEventListener('keyup', function(evento){
+  var elemento = evento.target;
+
+  if (evento.keyCode == 8){
+    return true;
+  }
+
+  if (elemento) {
+    var regra = elemento.getAttribute('data-mascara');
+
+    if (regra) {
+      mascara(elemento, regra, 'numero');
+    }
   }
 });
 
 
 
-function mascara(pattern, tipo){
-  $input.setAttribute('maxlength', pattern.length);
+function mascara(campo, regra, tipo){
+  campo.setAttribute('maxlength', regra.length);
 
-  var valor = $input.value;
+  var valor = campo.value;
   var ultimoIndice = valor.length - 1;
 
   if (tipo == 'numero') {
-    $input.value = valor.replace(/[A-Z]/gi, '');
+    campo.value = valor.replace(/[A-Z]/gi, '');
   }
   else if (tipo == 'texto') {
-    $input.value = valor.replace(/[0-9]/gi, '');
+    campo.value = valor.replace(/[0-9]/gi, '');
   }
 
-  if (pattern[ultimoIndice] != '#') {
-    var novaString = pattern[ultimoIndice] + valor[ultimoIndice];
-    var teste1 = valor.slice(0, ultimoIndice);
+/*
+  if (regra[ultimoIndice] != '#') {
+    var novaString = regra[ultimoIndice] + valor[ultimoIndice];
+    var teste1 = valor.slice(0, -1);
     var teste2 = teste1.concat(novaString);
-    $input.value = teste2;
-  }  // FAZ TUDO POREM BUGA QUANDO TEM DOIS SIMBOLOS SEGUIDOS NO PATTERN EXEMPLO: ####--#### ou (##))####-####.
+    campo.value = teste2;
+  }  // FAZ TUDO POREM BUGA QUANDO TEM DOIS SIMBOLOS SEGUIDOS NO regra EXEMPLO: ####--#### ou (##))####-####.
+*/
 };
