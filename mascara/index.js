@@ -9,7 +9,7 @@ var $input = document.querySelector('#input');
 
 $input.addEventListener('keyup', function(event){
   if(event.keyCode != 8){
-    mascara(pattern.data, 'numero');
+    mascara(pattern.data, 'texto');
   }
 });
 
@@ -22,10 +22,10 @@ function mascara(pattern, tipo){
   var ultimoIndice = valor.length - 1;
 
   if (tipo == 'numero') {
-    $input.value = valor.replace(/[^0-9]/gi, ''); // POREM TAMBEM RETIRA AS COISAS DO PATTERN.
+    $input.value = valor.replace(/[A-Z]/gi, '');
   }
   else if (tipo == 'texto') {
-    $input.value = valor.replace(/[^A-Z]/g1, ''); // POREM TAMBEM RETIRA AS COISAS DO PATTERN.
+    $input.value = valor.replace(/[0-9]/gi, '');
   }
 
   if (pattern[ultimoIndice] != '#') {
