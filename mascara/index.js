@@ -1,5 +1,6 @@
-var pattern = {
-  telefone : '(##)#####-####',
+var padrao = {
+  telRes : '(##) ####-####',
+  telCel : '(##) #####-####',
   cpf : '###.###.###-##',
   data : '##/##/####',
   cnpj : '##.###.###/####-##',
@@ -7,19 +8,19 @@ var pattern = {
 
 var $input = document.querySelector('#input');
 
-$input.addEventListener('keyup', function(event){
-  if(event.keyCode != 8){
-    mascara(pattern.data, 'texto');
+$input.addEventListener('keyup', function(evento){
+
+  if (evento.keyCode != 8) {
+    mascara(padrao.telCel, 'numero');
   }
 });
 
 
 
-function mascara(pattern, tipo){
-  $input.setAttribute('maxlength', pattern.length);
-
+function mascara(padrao, tipo){
   var valor = $input.value;
-  var ultimoIndice = valor.length - 1;
+
+  $input.setAttribute('maxlength', padrao.length);
 
   if (tipo == 'numero') {
     $input.value = valor.replace(/[A-Z]/gi, '');
@@ -28,10 +29,17 @@ function mascara(pattern, tipo){
     $input.value = valor.replace(/[0-9]/gi, '');
   }
 
-  if (pattern[ultimoIndice] != '#') {
-    var novaString = pattern[ultimoIndice] + valor[ultimoIndice];
-    var teste1 = valor.slice(0, ultimoIndice);
-    var teste2 = teste1.concat(novaString);
-    $input.value = teste2;
-  }  // FAZ TUDO POREM BUGA QUANDO TEM DOIS SIMBOLOS SEGUIDOS NO PATTERN EXEMPLO: ####--#### ou (##))####-####.
+  if ($input.value != '') {
+    for (i = 0; i < valor.length; i++) {
+      valor = $input.value;
+
+      if (padrao[i] != '#' && valor[i] != padrao[i]) {
+        var novaString = padrao[i] + valor[i];
+        var tudoAntes = valor.slice(0, i);
+        var tudoDepois = valor.slice(i+1, padrao.length);
+        var novoValor = tudoAntes.concat(novaString).concat(tudoDepois);
+        $input.value = novoValor;
+      }
+    };
+  }
 };
