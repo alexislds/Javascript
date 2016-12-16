@@ -1,51 +1,51 @@
 var padrao = {
-  telRes : '(##) ####-####',
-  telCel : '(##) #####-####',
-  cpf : '###.###.###-##',
-  data : '##/##/####',
-  cnpj : '##.###.###/####-##',
+  telRes : {regra : '(##) ####-####',     tipo: 'numero'},
+  telCel : {regra : '(##) #####-####',    tipo: 'numero'},
+  cpf    : {regra : '###.###.###-##',     tipo: 'numero'},
+  data   : {regra : '##/##/####',         tipo: 'numero'},
+  cnpj   : {regra : '##.###.###/####-##', tipo: 'numero'}
 };
+
 
 window.addEventListener('keyup', function(evento) {
   var alvo = evento.target;
-  if (alvo.tagName == 'INPUT' && alvo.hasAttribute('data-mascara')) {
-    var alvoAtt = eval(alvo.getAttribute('data-mascara'));
+  var masc = alvo.getAttribute('data-mascara');
 
-    mascara(alvo, alvoAtt, 'numero');
+  if (masc) {
+    mascara(alvo, masc);
   }
 });
 
 
-
-function mascara(input, padrao, tipo){
+function mascara(input, atributo){
   var valor = input.value;
+  var regra = padrao[atributo]['regra'];
+  var tipo  = padrao[atributo]['tipo'];
 
-  input.setAttribute('maxlength', padrao.length);
+  input.setAttribute('maxlength', regra.length);
 
   if (tipo == 'numero') {
-    input.value = valor.replace(/[A-Z]/gi, '');
+    valor = valor.replace(/[A-Z]/gi, '');
   }
   else if (tipo == 'texto') {
-    input.value = valor.replace(/[0-9]/gi, '');
+    valor = valor.replace(/[0-9]/gi, '');
   }
 
-  if (input.value != '') {
+  var valorNovo = '';
+
+  if (valor != '') {
     for (i = 0; i < valor.length; i++) {
-      valor = input.value;
 
-      if (padrao[i] != '#' && valor[i] != padrao[i]) {
-        var novaString = padrao[i] + valor[i];
-        var tudoAntes = valor.slice(0, i);
-        var tudoDepois = valor.slice(i+1, padrao.length);
-        var novoValor = tudoAntes.concat(novaString).concat(tudoDepois);
-        input.value = novoValor;
+      if (regra[i] != '#' && valor[i] != regra[i]) {
+        valorNovo = valorNovo + regra[i];
       }
-    };
+
+      valorNovo = valorNovo + valor[i];
+    }
   }
-};
 
-
-
+  input.value = valorNovo;
+}
 
 //BUGS e MELHORIAS E TESTES//
 
